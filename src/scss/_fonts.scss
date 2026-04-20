@@ -1,0 +1,45 @@
+// RISD brand fonts — ported from risd-upstream/web/themes/custom/risd_base_theme.
+// Casing of "RISD Serif SemiComplete" is normalized across weights (the upstream
+// theme has inconsistent casing that splits the family into two in CSS).
+
+// RISD Sans
+@font-face {
+  font-family: 'RISD Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: fallback;
+  src: url('/fonts/RISD_Sans-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'RISD Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: fallback;
+  src: url('/fonts/RISD_Sans-Bold.woff2') format('woff2');
+}
+
+// RISD Serif SemiComplete — variable font covers the full weight range
+@font-face {
+  font-family: 'RISD Serif SemiComplete';
+  font-style: normal;
+  font-weight: 400;
+  font-display: fallback;
+  src: url('/fonts/RISD_Serif_Semi-Complete_Variable.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'RISD Serif SemiComplete';
+  font-style: normal;
+  font-weight: 700;
+  font-display: fallback;
+  src: url('/fonts/RISD_Serif_Semi-Complete_Variable.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'RISD Serif SemiComplete';
+  font-style: italic;
+  font-weight: 400;
+  font-display: fallback;
+  src: url('/fonts/RISD_Serif_Semi-Complete_Italic_Variable.woff2') format('woff2');
+}
