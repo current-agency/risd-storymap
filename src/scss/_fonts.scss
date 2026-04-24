@@ -1,14 +1,26 @@
 // RISD brand fonts — ported from risd-upstream/web/themes/custom/risd_base_theme.
-// Casing of "RISD Serif SemiComplete" is normalized across weights (the upstream
-// theme has inconsistent casing that splits the family into two in CSS).
+// Casing of "RISD Serif Complete" / "RISD Serif SemiComplete" is normalized across
+// weights (the upstream theme has inconsistent casing that splits the family in two
+// in CSS).
+//
+// Role map (see embed-config.js):
+//   title → RISD Serif Complete (regular serif; used by all h1–h6 on risd.edu)
+//   body  → RISD Sans
+//
+// RISD Serif SemiComplete is the stencil/cut display variant and is intentionally
+// not registered as a role here — SemiComplete letterforms have built-in splits
+// that look broken in running text.
 
-// RISD Sans
+// RISD Sans — using the Variable font for both 400 and 700.
+// The non-variable `RISD_Sans-Bold.woff2` file upstream is malformed (OTS fails
+// with "Failed to convert WOFF 2.0 font to SFNT") and is not referenced by RISD's
+// own CSS. The variable file covers the full weight axis cleanly.
 @font-face {
   font-family: 'RISD Sans';
   font-style: normal;
   font-weight: 400;
   font-display: fallback;
-  src: url('/fonts/RISD_Sans-Regular.woff2') format('woff2');
+  src: url('/fonts/RISD_Sans_Variable.woff2') format('woff2');
 }
 
 @font-face {
@@ -16,30 +28,35 @@
   font-style: normal;
   font-weight: 700;
   font-display: fallback;
-  src: url('/fonts/RISD_Sans-Bold.woff2') format('woff2');
+  src: url('/fonts/RISD_Sans_Variable.woff2') format('woff2');
 }
 
-// RISD Serif SemiComplete — variable font covers the full weight range
+// RISD Serif Complete — face stack mirrors upstream risd_base_theme exactly.
+// The variable file's wght axis is non-standard (min=0, default=0, max=1000),
+// so interpolating to CSS weight 300 renders heavier than expected. Upstream
+// works around this by declaring ONLY w100 (Light static) and w400 (Variable);
+// the CSS font-matching algorithm then picks the Light static when the page
+// asks for any weight < 400, giving the thin editorial look used on risd.edu.
+// Do not add intermediate weight declarations pointing at the Variable.
 @font-face {
-  font-family: 'RISD Serif SemiComplete';
+  font-family: 'RISD Serif Complete';
+  font-style: normal;
+  font-weight: 100;
+  font-display: fallback;
+  src: url('/fonts/RISD_Serif_Complete-Light.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'RISD Serif Complete';
   font-style: normal;
   font-weight: 400;
   font-display: fallback;
-  src: url('/fonts/RISD_Serif_Semi-Complete_Variable.woff2') format('woff2');
+  src: url('/fonts/RISD_Serif_Complete_Variable.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: 'RISD Serif SemiComplete';
-  font-style: normal;
-  font-weight: 700;
-  font-display: fallback;
-  src: url('/fonts/RISD_Serif_Semi-Complete_Variable.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'RISD Serif SemiComplete';
+  font-family: 'RISD Serif Complete';
   font-style: italic;
-  font-weight: 400;
   font-display: fallback;
-  src: url('/fonts/RISD_Serif_Semi-Complete_Italic_Variable.woff2') format('woff2');
+  src: url('/fonts/RISD_Serif_Complete-Light_Italic.woff2') format('woff2');
 }

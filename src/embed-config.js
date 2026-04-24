@@ -9,8 +9,8 @@ window.storyMapsEmbedConfig = {
   rootNode: '.storymaps-root',
   font: {
     title: {
-      fontFamily: 'RISD Serif SemiComplete',
-      weight: { normal: 400, bold: 700 }
+      fontFamily: 'RISD Serif Complete',
+      weight: { normal: 300, bold: 400 }
     },
     body: {
       fontFamily: 'RISD Sans',
