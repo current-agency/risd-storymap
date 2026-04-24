@@ -7,6 +7,10 @@ import './scss/style.scss';
 window.storyMapsEmbedConfig = {
   storyId: '92f8a6e40cf949e3963a6d289d803337',
   rootNode: '.storymaps-root',
+  // Height of the custom site-header in index.html; keep in sync with
+  // `$header-height` in src/scss/style.scss so the embed positions its
+  // internal sticky UI below our header.
+  topOffset: '3rem',
   font: {
     title: {
       fontFamily: 'RISD Serif Complete',
