@@ -20,7 +20,7 @@ body {
   height: $header-height;
   display: flex;
   align-items: center;
-  background: #000;
+  background: #fff;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.12);
 }
 
@@ -38,13 +38,12 @@ body {
   height: 4rem;
   width: auto;
   display: block;
-  filter: brightness(0) invert(1);
 }
 
 .site-header__title {
   font-size: 0.9375rem;
   font-weight: 500;
-  color: #fff;
+  color: #151515;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -52,4 +51,24 @@ body {
 
 .storymaps-root {
   width: 100vw;
+}
+
+// Esri's `.story-footer` is the closing credits strip rendered by the
+// /embed/view script. The endpoint is beta/unversioned — if the embed
+// renames this class, the override will silently stop applying.
+// `!important` on background only: Esri ships an equal-specificity rule
+// (`.story-footer.jsx-<hash>`) loaded after ours, which wins on source
+// order. Color works without !important because the cascading default
+// is less specific.
+.storymaps-root .story-footer {
+  background: #000 !important;
+  color: #fff;
+
+  // Esri sets `color: #111` directly on the credit text elements
+  // (`<strong>`, `<p.text-input>`), so inheritance from `.story-footer`
+  // isn't enough — recolor them explicitly.
+  strong,
+  p {
+    color: #fff;
+  }
 }
