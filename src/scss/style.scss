@@ -3,7 +3,7 @@
 // Header height must stay in sync with `topOffset` in src/embed-config.js —
 // the StoryMaps embed uses that value to position its internal UI (sidecar,
 // navigation) so sticky elements clear this header. Change both together.
-$header-height: 3rem;
+$header-height: 5rem;
 
 html,
 body {
@@ -20,7 +20,7 @@ body {
   height: $header-height;
   display: flex;
   align-items: center;
-  background: #fff;
+  background: #000;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.12);
 }
 
@@ -35,15 +35,16 @@ body {
 }
 
 .site-header__logo {
-  height: 2rem;
+  height: 4rem;
   width: auto;
   display: block;
+  filter: brightness(0) invert(1);
 }
 
 .site-header__title {
   font-size: 0.9375rem;
   font-weight: 500;
-  color: #151515;
+  color: #fff;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
