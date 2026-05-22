@@ -38,6 +38,10 @@ body {
   height: 4rem;
   width: auto;
   display: block;
+
+  @media (max-width: 640px) {
+    height: 2rem;
+  }
 }
 
 .site-header__title {
@@ -47,6 +51,10 @@ body {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  @media (max-width: 640px) {
+    font-size: 0.75rem;
+  }
 }
 
 .storymaps-root {
